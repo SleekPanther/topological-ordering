@@ -6,17 +6,17 @@ Finds a Topological Ordering of vertices in a Directed Acyclic Graph
 - Must be a Directed Graph
 - Must NOT contain a cycle
 
-## Graph 1
+### Graph 1
 <img src="images/graph1.png" width="400">
 
-## Graph 1 Topological Ordering
+### Graph 1 Topological Ordering
 <img src="images/graph1-topological-ordering.png" width="550">
 
 ## Algorithm
 A DAG must have a node with **no incoming edges**  
 Pick a node `v` with no incoming edges  
 Print `v`  
-Calculate a topological ordering on G-{`v`}  
+Calculate a topological ordering on G–{`v`}  
 Ends when all nodes are visited and all included in the ordering
 
 Keep track of 2 things:
@@ -38,19 +38,23 @@ add `w` to `S` if `count[w]` hits `0`
 **O(m + n)**
 
 ## Usage
+- **Detects cycles if graph is not a DAG and prints an error message**
+- Create a graph as an adjacency list  
+`ArrayList<ArrayList<Integer>> graph1 = new ArrayList<ArrayList<Integer>>();`
+- Add rows for each vertex. `graph1.get(u)` is a list of nodes representing edges FROM `u`
+- Run `TopologicalOrdering.findTopologicalOrdering(graph1);`
 
-
-## Graph 2
+### Graph 2
 <img src="images/graph2.png" width="400">
 
-## Graph 2 Topological Ordering
+### Graph 2 Topological Ordering
 <img src="images/graph2-topological-ordering.png" width="550">
 
-## Graph 3 (No topological ordering)
+### Graph 3 (No topological ordering)
 <img src="images/graph3.png" width="200">
 Contains a cycle, & no nodes with no incoming edges
 
-## Graph 4 (No topological ordering)
+### Graph 4 (No topological ordering)
 <img src="images/graph4.png" width="350">
 Contains a cycle
 
