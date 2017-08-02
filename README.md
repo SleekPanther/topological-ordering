@@ -39,9 +39,13 @@ add `w` to `S` if `count[w]` hits `0`
 
 ## Usage
 - **Detects cycles if graph is not a DAG and prints an error message**
+- **Node names are integers for simplicity of the code & start at `0`**
 - Create a graph as an adjacency list  
 `ArrayList<ArrayList<Integer>> graph1 = new ArrayList<ArrayList<Integer>>();`
-- Add rows for each vertex. `graph1.get(u)` is a list of nodes representing edges FROM `u`
+  - Add rows for each vertex. `graph1.get(u)` is a list of nodes representing edges FROM `u`
+  - Orphan nodes are allowed (i.e. a node with no incoming or outgoing edges). It doesn't have to be the last node in the graph, but is probably easier if it is. Just make sure no edges go to that node. (e.g. if node `5` is an orphan, then `5` must not appear in any of the rows of the adjacency list)
+  - Nodes with no outgoing edges just need an empty `ArrayList`  
+  `graph1.add(new ArrayList<Integer>());`
 - Run `TopologicalOrdering.findTopologicalOrdering(graph1);`
 
 ### Graph 2
