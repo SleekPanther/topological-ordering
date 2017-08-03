@@ -2,7 +2,7 @@
 Finds a Topological Ordering of vertices in a Directed Acyclic Graph
 
 ## Problem Statement
-**Topological Ordering:** arranges nodes as v<sub>1</sub>, v<sub>2</sub> ..., v<sub>n</sub> so that for every edge (v<sub>i</sub>, v<sub>j</sub>) we have i < j
+**Topological Ordering:** arranges nodes as v<sub>1</sub>, v<sub>2</sub> ..., v<sub>n</sub> so that for every edge (v<sub>i</sub>, v<sub>j</sub>), i < j
 - Must be a Directed Graph
 - Must NOT contain a cycle
 
@@ -12,15 +12,18 @@ Finds a Topological Ordering of vertices in a Directed Acyclic Graph
 ### Graph 1 Topological Ordering
 <img src="images/graph1-topological-ordering.png" width="550">
 
+**Can can be more than 1 topologcal ordering. Algorithm finds 1 if 1 exists**
+
+
 ## Algorithm
 A DAG must have a node with **no incoming edges**  
 Pick a node `v` with no incoming edges  
 Print `v`  
-Calculate a topological ordering on G–{`v`}  
-Ends when all nodes are visited and all included in the ordering
+Calculate a topological ordering on G – {`v`}  
+Ends when all nodes are included in the ordering
 
 Keep track of 2 things:
-- `count(w)` = number of incoming edges
+- `count[w]` = number of incoming edges
 - `S` = set of nodes with no incoming edges
 
 Set-Up
@@ -38,8 +41,9 @@ add `w` to `S` if `count[w]` hits `0`
 **O(m + n)**
 
 ## Usage
-- **Detects cycles if graph is not a DAG and prints an error message**
-- **Node names are integers for simplicity of the code & start at `0`**
+**Detects cycles if graph is not a DAG and prints an error message**  
+**Node names are integers for simplicity of the code & start at `0`**
+
 - Create a graph as an adjacency list  
 `ArrayList<ArrayList<Integer>> graph1 = new ArrayList<ArrayList<Integer>>();`
   - Add rows for each vertex. `graph1.get(u)` is a list of nodes representing edges FROM `u`
