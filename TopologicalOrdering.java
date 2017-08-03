@@ -62,8 +62,8 @@ public class TopologicalOrdering{
 		graph2.add(new ArrayList<Integer>(Arrays.asList(2)));
 		graph2.add(new ArrayList<Integer>(Arrays.asList(3, 4)));
 		graph2.add(new ArrayList<Integer>(Arrays.asList(4)));
-		graph2.add(new ArrayList<Integer>());
-		graph2.add(new ArrayList<Integer>());
+		graph2.add(new ArrayList<Integer>());		//node with not outgoing edges, but still connected
+		graph2.add(new ArrayList<Integer>());		//orphan node
 		
 		TopologicalOrdering.findTopologicalOrdering(graph2);
 		
